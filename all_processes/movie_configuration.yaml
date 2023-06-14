@@ -1,0 +1,82 @@
+Imdb:
+    Latest Data Directory: /Users/timdunn/Desktop/imdb_latest/
+    Data Url: https://datasets.imdbws.com/
+    Extra Data Path: /Users/timdunn/imdb_extras.csv
+    Extra Data Output Path: /Users/timdunn/Desktop/converted_extra_data_imdb.csv
+    Extra Data Directory: /Users/timdunn/Desktop/imdb_info/
+    Converted Data Directory: /Users/timdunn/Desktop/converted_movie_project_data/
+    Title Path: /Users/timdunn/Desktop/converted_titles.csv
+    Merged Movie Basics Path: /Users/timdunn/Desktop/merged_titles.csv
+    Soundmix Path: /Users/timdunn/Desktop/imdb_latest/soundmixes.csv
+    Certificate Path: /Users/timdunn/Desktop/imdb_latest/certificates.csv
+    Country Path: /Users/timdunn/Desktop/imdb_latest/countries.csv
+    Genre Path: /Users/timdunn/Desktop/imdb_latest/genres.csv
+    Box Office Path: /Users/timdunn/Desktop/imdb_latest/boxoffices.csv
+    Videos Path: /Users/timdunn/Desktop/imdb_latest/videos.csv
+    Keywords Path: /Users/timdunn/Desktop/imdb_latest/keywords.csv
+Everything Path: /Users/timdunn/Desktop/everything_merged.csv
+Top Movies Directory: /Users/timdunn/Desktop/top_movies/
+Proxies: /Users/timdunn/Desktop/proxies.csv
+Posters: 
+    Progress Path: /Users/timdunn/Desktop/posters/
+    Output Path: /Users/timdunn/Desktop/posters.csv
+
+Youtube:
+    Playlist path: /Users/timdunn/Desktop/youtube_latest/playlists.rtf
+    Latest Data Directory: /Users/timdunn/Desktop/youtube_latest/
+Links:
+    Extra Path: /Users/timdunn/Desktop/converted_movie_project_data/link_extras.csv
+    Extra Progress Path: /Users/timdunn/Desktop/link_extra_progress/
+    Merged Links Path: /Users/timdunn/Desktop/links/merged.csv
+    All Links Path: /Users/timdunn/Desktop/links/all_links.csv
+    Dubbed Path: /Users/timdunn/Desktop/links/dubbed.csv
+    Links Unconverted Path: /Users/timdunn/okru_extra.csv
+Scraper:
+    Imdb Poster:
+        Data Directory: /Users/timdunn/Desktop/imdb_posters/
+        Combined Data Path: /Users/timdunn/Desktop/imdb_posters.csv
+        Tconst Path: /Users/timdunn/Desktop/okru_tconsts.csv
+    Okru:
+        Data Directory: /Users/timdunn/Desktop/okru_checkpoints/
+        Combined Data Path: /Users/timdunn/Desktop/okru_progress.csv
+        Tconst Path: /Users/timdunn/Desktop/okru_tconsts.csv
+    Bmovies:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/bmovies.csv
+        Data Directory: /Users/timdunn/Desktop/latest_scrapes/bmovies/
+    Chill:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/chill.csv
+    Go:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/go.csv
+    Hdonline:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/hdonline.csv
+    Look:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/look.csv
+    Membed:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/membed.csv
+    LosMovies:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/los_movies.csv
+    Movie123:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/movie123.csv
+    OneMovies:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/one_movies.csv
+    Prime:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/prime.csv
+    Sflix:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/sflix.csv
+    Soap:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/soap.csv
+    Solar:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/solar.csv
+    Streamlord:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/streamlord.csv
+    Swatch:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/swatch.csv
+    TinyZone:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/tinyzone.csv
+    Vex:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/vex.csv
+    YesMovie:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/yes.csv
+    Tubi:
+        Combined Data Path: /Users/timdunn/Desktop/latest_scrapes/tubi.csv
+ChromedriverPath: /Users/timdunn/Downloads/chromedriver_mac_arm64/chromedriver
