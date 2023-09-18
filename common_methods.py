@@ -1,4 +1,6 @@
-from requirements import *
+from requirements import (os, glob, Cinemagoer, pd, BeautifulSoup, yaml, 
+                          gzip, requests, sample, shutil, re, ChainMap, 
+                          SafeLoader, FreeProxy, webdriver, uc)
 
 
 def combine_keywords(movie_id):
@@ -21,7 +23,8 @@ def listdir_nohidden(path):
 
 
 def get_keywords_movie(movie_id):
-    keywords = Cinemagoer().get_movie(movie_id.split("tt")[-1], info='keywords').get('keywords')
+    keywords = Cinemagoer().get_movie(movie_id.split("tt")[-1], 
+                                      info='keywords').get('keywords')
     if keywords is None:
         return []
     else:
@@ -33,7 +36,8 @@ def reset_and_copy(df):
 
 
 def get_dfs_divided(df, chunks=5):
-    return [df.loc[indexes] for indexes in divide_chunks(df.index, round(df.index.size / chunks))]
+    return [df.loc[indexes] for indexes in divide_chunks(df.index, 
+                                                         round(df.index.size / chunks))]
 
 
 def divide_chunks(l, n):
@@ -65,12 +69,14 @@ def get_soup_url(url, proxies=None):
 
 def get_page_url(url, proxies=None):
     if proxies is not None:
-        return requests.get(url, proxies={'http': sample(proxies, 1)[0], 'https': sample(proxies, 1)[0]})
+        return requests.get(url, proxies={'http': sample(proxies, 1)[0], 
+                                          'https': sample(proxies, 1)[0]})
     else:
         return requests.get(url)
 
 def get_page_url_w_proxy(url, proxy):
-    return requests.get(url, timeout=10, proxies={'http': f"http://{proxy.get('host')}:{proxy.get('port')}"})
+    return requests.get(url, timeout=10, 
+                        proxies={'http': f"http://{proxy.get('host')}:{proxy.get('port')}"})
 
 def extract_file(file_to_extract, output_file):
     with gzip.open(file_to_extract, 'rb') as f_in:
@@ -96,7 +102,8 @@ def minutes_from_string(date_string):
         if len(split_string) == 2:
             return round(split_string[0] + (split_string[1] / 60))
         elif len(split_string) == 3:
-            return round((split_string[0] * 60) + split_string[1] + (split_string[2] / 60))
+            return round((split_string[0] * 60) + split_string[1] + 
+                         (split_string[2] / 60))
         else:
             return 0
     except:
@@ -166,10 +173,11 @@ def set_key(dict_object, key, key_val, excluded_keys=[]):
         if type(key_val) in [str, int, float]:
             dict_object[key] = key_val
         elif type(key_val) == list:
-            [set_key(dict_object, "{}_{}".format(key, index + 1), key_val[index], excluded_keys) for index in
-             range(len(key_val))]
+            [set_key(dict_object, "{}_{}".format(key, index + 1), key_val[index], 
+                     excluded_keys) for index in range(len(key_val))]
         elif type(key_val) == dict:
-            [set_key(dict_object, "{}_{}".format(key, sub_key), key_val.get(sub_key), excluded_keys) for sub_key in
+            [set_key(dict_object, "{}_{}".format(key, sub_key), 
+                     key_val.get(sub_key), excluded_keys) for sub_key in
              key_val.keys()]
 
 
@@ -205,11 +213,13 @@ def get_driver(use_proxy, window_size, chromedriver_path):
         options.add_argument('--proxy-server=%s' % proxy)
     return webdriver.Chrome(executable_path=chromedriver_path, chrome_options=options)
 
-def get_undetected_driver(use_proxy, test=False):
-    if not test:
-        options.add_argument("--headless")
+def get_undetected_chromedriver(host, port, headless):
+    # uc.install()
     options = uc.ChromeOptions()
-    driver = uc.Chrome(options=options) 
+    options.add_argument(f"--proxy-server={host}:{port}")
+    # options.add_argument(f"--headless")
+    # return uc.Chrome(executable_path='/Users/timdunn/Downloads/chromedriver_mac_arm64-1/chromedriver', options=options)
+    return uc.Chrome(options=options, use_subprocess=True, headless=True, )
 
 def has_some_data(data):
     try:
@@ -230,6 +240,21 @@ def get_year(title):
         return matches[0]
     else:
         return None
+    
+def quit_driver(driver):
+    try:
+        driver.quit()
+    except:
+        pass
+    try:
+        driver.close()
+    except:
+        pass
+
+def merge_many_dicts(dicts):
+    dicts = [item for item in dicts if type(item) == dict]
+    return {k:v for d in dicts for k, v in d.items()}
+
 
 def try_except_method(function, *function_args, return_value=None):
     try:
@@ -242,7 +267,8 @@ def get_first_key_from_list(a_dict):
 
 
 def convert_xy_columns(df):
-    xy_columns = [column for column in df.columns if column.endswith('_x') or column.endswith('_y')]
+    xy_columns = [column for column in df.columns if column.endswith('_x') 
+                  or column.endswith('_y')]
     for column in xy_columns:
         for split_var in ['_x', '_y', '_z']:
             if split_var in column:
@@ -252,8 +278,13 @@ def convert_xy_columns(df):
     df.drop(xy_columns, inplace=True, axis=1)
 
 
+def common_null_values():
+    return ['None', 'nan', None, '\\N', "Your connection is not private", '', 
+            'Connect to Wi-Fi', "This site can’t be reached", "This page isn’t working"]
+    
+    
 def not_null_value(value):
-    return not pd.isnull(value) and value not in ['None', 'nan', None, '\\N']
+    return ( not pd.isnull(value) ) and ( value not in common_null_values() )
 
 def column_within_range(df, amount, column_a, column_b):
     column_a_value = df[column_a]
@@ -283,3 +314,22 @@ def try_df(file):
     except:
         return None
 
+def get_stripped_text_value(soup, *args):
+    try:
+        return soup.find(args).text.strip()
+    except:
+        return None
+
+def file_w_non_null(file, column):
+    df = pd.read_csv(file)
+    return df.loc[df[column].apply(lambda x: not_null_value(x))]
+
+def email_regex():
+    return r"""(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"""
+
+def emails_from_text(text):
+    new_emails = ((re.findall(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b", 
+                              text, re.I)))
+    list_emails = set()
+    list_emails.update(new_emails)
+    return list(list_emails)

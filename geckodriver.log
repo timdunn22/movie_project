@@ -1,0 +1,16 @@
+1693236414708	geckodriver	INFO	Listening on 127.0.0.1:55849
+1693236415217	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/z9/ml790yl90yj8nyc5j320wb4w0000gn/T/rust_mozprofile8iJV8X"
+*** You are running in headless mode.
+1693236415459	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/z9/ml790yl90yj8nyc5j320wb4w0000gn/T/rust_mozprofile8iJV8X/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 243"  data: no]
+DevTools listening on ws://localhost:55850/devtools/browser/55a25eb6-222a-40a5-ba96-25abf4df793f
+1693236416468	Marionette	INFO	Listening on port 55877
+Read port: 55877
+1693236416566	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1693236945545	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: timeout
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.

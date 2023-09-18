@@ -28,7 +28,7 @@ class ProcessTopMovies(LoadYamlVars):
         self.verify_links_and_extract_info()
         self.scrape_okru_for_top_movies()
         # self.add_top_dubbed_info()
-        # self.merge_top_movies()
+        self.merge_top_movies()
     
     def run_generate_top_movies(self):
         self.update_top_movie_object.run_and_generate_all()

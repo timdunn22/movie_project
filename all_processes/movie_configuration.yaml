@@ -20,7 +20,22 @@ Proxies: /Users/timdunn/Desktop/proxies.csv
 Posters: 
     Progress Path: /Users/timdunn/Desktop/posters/
     Output Path: /Users/timdunn/Desktop/posters.csv
-
+Marketing:
+    Kftv:
+        Not Found File: /Users/timdunn/Desktop/kftv_not_found.csv
+        Links: /Users/timdunn/Desktop/movie_production_companies.csv
+        Profiles: /Users/timdunn/Desktop/kftv_profiles.csv
+        Progress Directory: /Users/timdunn/Desktop/kftv_progress/
+    YComb:
+        Not Found File: /Users/timdunn/Desktop/ycomb_not_found.csv
+        Links: /Users/timdunn/Desktop/y_comb_links.csv
+        Profiles: /Users/timdunn/Desktop/ycomb_profiles.csv
+        Progress Directory: /Users/timdunn/Desktop/ycomb_progress/
+    Email:
+        Not Found File: /Users/timdunn/Desktop/email_not_found.csv
+        Links: /Users/timdunn/Desktop/ycomb_profiles.csv
+        Profiles: /Users/timdunn/Desktop/email_profiles.csv
+        Progress Directory: /Users/timdunn/Desktop/email_progress/
 Youtube:
     Playlist path: /Users/timdunn/Desktop/youtube_latest/playlists.rtf
     Latest Data Directory: /Users/timdunn/Desktop/youtube_latest/

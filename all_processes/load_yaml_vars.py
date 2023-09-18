@@ -37,6 +37,7 @@ class LoadYamlVars:
         self.proxies_path = self.configuration.get('Proxies')
         self.poster_directory = self.configuration.get('Posters').get('Progress Path')
         self.poster_output_file = self.configuration.get('Posters').get('Output Path')
+        self.marketing = self.configuration.get('Marketing')
 
     def get_scraper_progress_path(self, scraper):
         scraper = self.get_scraper_name(scraper)
